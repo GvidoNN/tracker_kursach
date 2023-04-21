@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_application"
+    app:startDestination="@id/mainNavigationFragment">
+
+    <fragment
+        android:id="@+id/mainNavigationFragment"
+        android:name="my.lovely.trucks.presentation.MainNavigationFragment"
+        android:label="MainNavigationFragment" />
+</navigation>

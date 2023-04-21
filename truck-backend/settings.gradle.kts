@@ -1,0 +1,1 @@
+rootProject.name = "lovely.truck.truck-backend"

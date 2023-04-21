@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_nav_graph"
+    app:startDestination="@id/trackerFragment">
+
+    <fragment
+        android:id="@+id/addingFragment"
+        android:name="my.lovely.trucks.presentation.adding.AddingFragment"
+        android:label="addingFragment" >
+        <action
+            android:id="@+id/action_addingFragment_to_trackerFragment"
+            app:destination="@id/trackerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trackerFragment"
+        android:name="my.lovely.trucks.presentation.tracker.TrackerFragment"
+        android:label="trackerFragment" >
+        <action
+            android:id="@+id/action_trackerFragment_to_addingFragment"
+            app:destination="@id/addingFragment" />
+    </fragment>
+</navigation>
