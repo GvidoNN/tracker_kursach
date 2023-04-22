@@ -3,6 +3,13 @@
     <string name="tracking">Tracking</string>
     <string name="adding">Adding</string>
     <string name="password_hint">Password</string>
+    <string name="email_hint">Email</string>
     <string name="password_hint_again">Repeat password</string>
     <string name="login_hint">Login</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_out">Log Out</string>
+    <string name="dont_have_acc">Don’t have account?</string>
+    <string name="have_acc">Already have account?</string>
+
 </resources>

@@ -18,11 +18,9 @@ import javax.inject.Inject
 @HiltViewModel
 class TrackerViewModel @Inject constructor(
     private val getDataUseCase: GetDataUseCase,
-    private val loginApi: LoginService
 ) : ViewModel() {
 
     private val dataResponseLiveData = MutableLiveData<DataResponse>()
-    private val loginResponseLiveData = MutableLiveData<LoginResponse>()
 
     val dataResponse: LiveData<DataResponse>
         get() = dataResponseLiveData
@@ -32,15 +30,5 @@ class TrackerViewModel @Inject constructor(
         dataResponseLiveData.postValue(result?.body() ?: null)
     }
 
-    fun sendPostLogin() = viewModelScope.launch(Dispatchers.IO) {
-        try{
-            var result = loginApi.sendPostLogin(loginModel = LoginRequest(login = "test", password = "test"))
-            loginResponseLiveData.postValue(result.body())
-            Log.d("MyLog",result.body().toString())
-
-        } catch (e: Exception){
-            Log.d("MyLog",e.toString())
-        }
-    }
 
 }

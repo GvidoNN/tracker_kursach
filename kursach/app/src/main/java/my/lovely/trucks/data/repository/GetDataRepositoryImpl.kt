@@ -6,8 +6,7 @@ import my.lovely.trucks.domain.repository.GetDataRepository
 import retrofit2.Response
 import javax.inject.Inject
 
-class GetDataRepositoryImpl @Inject constructor(private val dataService: DataService):
-    GetDataRepository {
+class GetDataRepositoryImpl @Inject constructor(private val dataService: DataService): GetDataRepository {
     override suspend fun getData(): Response<DataResponse>?{
         return try{
             val result = dataService.getData()

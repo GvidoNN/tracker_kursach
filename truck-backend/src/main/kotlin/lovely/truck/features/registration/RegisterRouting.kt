@@ -1,13 +1,7 @@
-package lovely.truck.features.resgistration
+package lovely.truck.features.registration
 
-import io.ktor.http.*
 import io.ktor.server.application.*
-import io.ktor.server.request.*
-import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import lovely.truck.features.login.LoginReceiveRemote
-import lovely.truck.plugins.Test
-import lovely.truck.utils.isValidEmail
 
 fun Application.configureRegistrationRouting() {
     routing {

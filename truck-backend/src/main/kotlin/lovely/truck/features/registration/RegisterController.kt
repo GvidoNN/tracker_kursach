@@ -1,4 +1,4 @@
-package lovely.truck.features.resgistration
+package lovely.truck.features.registration
 
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -19,7 +19,7 @@ class RegisterController(private val call: ApplicationCall) {
         val userDTO = Users.fetchUser(registrationReceiveRemote.login)
 
         if (userDTO != null) {
-            call.respond(HttpStatusCode.Conflict, "User already exists")
+            call.respond(RegistrationResponseRemote(token = "null", signUp = false, exception = "User already exists"))
         } else {
             val token = UUID.randomUUID().toString()
 
@@ -33,9 +33,9 @@ class RegisterController(private val call: ApplicationCall) {
                     )
                 )
             } catch (e: ExposedSQLException) {
-                call.respond(HttpStatusCode.Conflict, "User already exists")
+                call.respond(RegistrationResponseRemote(token = "null", signUp = false, exception = "User already exists"))
             } catch (e: Exception) {
-                call.respond(HttpStatusCode.BadRequest, "Can't create user ${e.localizedMessage}")
+                call.respond(RegistrationResponseRemote(token = "null", signUp = false, exception = "${e.localizedMessage}"))
             }
 
             Tokens.insert(
@@ -45,7 +45,7 @@ class RegisterController(private val call: ApplicationCall) {
                 )
             )
 
-            call.respond(RegistrationResponseRemote(token = token))
+            call.respond(RegistrationResponseRemote(token = token, signUp = true, exception = "null"))
         }
     }
 }

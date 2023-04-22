@@ -18,6 +18,7 @@ object DataObject {
 
     var retrofitService: DataService? = null
     var retrofitLoginServise: LoginService? = null
+    var retrofitRegistrationService: RegistrationService? = null
 
     @Provides
     @Singleton
@@ -36,7 +37,7 @@ object DataObject {
 
     @Provides
     @Singleton
-    fun questGoRetrofit(): LoginService {
+    fun postLogin(): LoginService {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
@@ -47,5 +48,20 @@ object DataObject {
             retrofitLoginServise = retrofit.create(LoginService::class.java)
         }
         return retrofitLoginServise!!
+    }
+
+    @Provides
+    @Singleton
+    fun postRegistration(): RegistrationService {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
+        if (retrofitRegistrationService == null) {
+            val retrofit = Retrofit.Builder().baseUrl(BASE_URL).client(client)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            retrofitRegistrationService = retrofit.create(RegistrationService::class.java)
+        }
+        return retrofitRegistrationService!!
     }
 }

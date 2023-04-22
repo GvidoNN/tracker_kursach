@@ -1,7 +1,8 @@
 package my.lovely.trucks.domain.model
 
-data class LoginResponse(
+data class RegistrationResponse(
     val token: String,
-    val logIn: Boolean,
+    val signUp: Boolean,
     val exception: String
 )
+

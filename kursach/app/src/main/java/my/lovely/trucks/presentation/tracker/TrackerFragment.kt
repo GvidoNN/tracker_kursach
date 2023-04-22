@@ -29,7 +29,6 @@ class TrackerFragment: Fragment(R.layout.fragment_tracker) {
         super.onViewCreated(view, savedInstanceState)
 
         trackerViewModel.dataResponce()
-        trackerViewModel.sendPostLogin()
 
         trackerViewModel.dataResponse.observe(viewLifecycleOwner) { result ->
             if (result != null) {

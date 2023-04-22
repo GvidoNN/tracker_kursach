@@ -2,7 +2,13 @@
 <resources>
     <string name="tracking">Трекинг</string>
     <string name="adding">Добавление</string>
-    <string name="password_hint">Password</string>
-    <string name="password_hint_again">Repeat password</string>
-    <string name="login_hint">Login</string>
+    <string name="password_hint">Пароль</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint_again">Повтор пароля</string>
+    <string name="login_hint">Логин</string>
+    <string name="log_in">Войти</string>
+    <string name="sign_up">Зарегистрироваться</string>
+    <string name="sign_out">Выйти</string>
+    <string name="dont_have_acc">Нет аккаунта?</string>
+    <string name="have_acc">Уже есть аккаунт?</string>
 </resources>

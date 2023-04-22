@@ -1,4 +1,4 @@
-package lovely.truck.features.resgistration
+package lovely.truck.features.registration
 
 import kotlinx.serialization.Serializable
 
@@ -11,5 +11,7 @@ data class RegistrationReceiveRemote(
 
 @Serializable
 data class RegistrationResponseRemote(
-    val token: String
+    val token: String,
+    val signUp: Boolean,
+    val exception: String
 )
