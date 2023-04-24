@@ -28,14 +28,5 @@ class TrackerFragment: Fragment(R.layout.fragment_tracker) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        trackerViewModel.dataResponce()
-
-        trackerViewModel.dataResponse.observe(viewLifecycleOwner) { result ->
-            if (result != null) {
-                binding.tvHello.text = result[0].text
-            } else {
-
-            }
-        }
     }
 }

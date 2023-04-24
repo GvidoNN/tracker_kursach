@@ -11,5 +11,7 @@
     <string name="sign_out">Log Out</string>
     <string name="dont_have_acc">Don’t have account?</string>
     <string name="have_acc">Already have account?</string>
+    <string name="tracker_hint">Enter a track-number here...</string>
+    <string name="tracking_button">Tracking number</string>
 
 </resources>

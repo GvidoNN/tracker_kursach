@@ -21,9 +21,13 @@ class TrackerViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val dataResponseLiveData = MutableLiveData<DataResponse>()
+    private var progressBarLiveData = MutableLiveData<Boolean>()
 
     val dataResponse: LiveData<DataResponse>
         get() = dataResponseLiveData
+
+    val progressBar: LiveData<Boolean>
+        get() = progressBarLiveData
 
     fun dataResponce() = viewModelScope.launch(Dispatchers.IO) {
         var result = getDataUseCase.getSearchInside()

@@ -5,6 +5,7 @@ import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import lovely.truck.features.login.configureLoginRouting
 import lovely.truck.features.registration.configureRegistrationRouting
+import lovely.truck.features.tracker.configureTrackerRouting
 import lovely.truck.plugins.*
 import org.jetbrains.exposed.sql.Database
 
@@ -24,4 +25,5 @@ fun Application.module() {
     configureLoginRouting()
     configureRegistrationRouting()
     configureSerialization()
+    configureTrackerRouting()
 }

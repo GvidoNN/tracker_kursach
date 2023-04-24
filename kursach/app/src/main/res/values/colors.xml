@@ -11,4 +11,5 @@
     <color name="edit_text_background">#1F2430</color>
     <color name="text_hint">#696C75</color>
     <color name="yellow">#F4D144</color>
+    <color name="red">#EA1A1A</color>
 </resources>

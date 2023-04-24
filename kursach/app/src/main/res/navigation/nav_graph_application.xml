@@ -14,10 +14,14 @@
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_mainNavigationFragment"
-            app:destination="@id/mainNavigationFragment" />
+            app:destination="@id/mainNavigationFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/nav_graph_application"/>
         <action
             android:id="@+id/action_loginFragment_to_registrationFragment"
-            app:destination="@id/registrationFragment" />
+            app:destination="@id/registrationFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/nav_graph_application"/>
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
@@ -25,6 +29,8 @@
         android:label="RegistrationFragment" >
         <action
             android:id="@+id/action_registrationFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/nav_graph_application"/>
     </fragment>
 </navigation>

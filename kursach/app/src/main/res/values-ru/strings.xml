@@ -11,4 +11,6 @@
     <string name="sign_out">Выйти</string>
     <string name="dont_have_acc">Нет аккаунта?</string>
     <string name="have_acc">Уже есть аккаунт?</string>
+    <string name="tracker_hint">Впишите трек-номер сюда…</string>
+    <string name="tracking_button">Отследить номер</string>
 </resources>

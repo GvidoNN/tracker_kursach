@@ -16,19 +16,26 @@ import javax.inject.Inject
 class RegistrationViewModel @Inject constructor(private val requestRegistrationUseCase: RequestRegistrationUseCase) : ViewModel() {
 
     private var requestRegistrationLiveData = MutableLiveData<RegistrationResponse>()
+    private var progressBarLiveData = MutableLiveData<Boolean>()
 
     val registration: LiveData<RegistrationResponse>
         get() = requestRegistrationLiveData
 
+    val progressBar: LiveData<Boolean>
+        get() = progressBarLiveData
+
     fun sendPostRegistration(login: String, password: String, email: String) = viewModelScope.launch(Dispatchers.IO) {
         try{
+            progressBarLiveData.postValue(true)
             var result = requestRegistrationUseCase.getRegistrationResponse(login = login, password = password, email= email)
             requestRegistrationLiveData.postValue(result?.body() ?: null)
             if (result != null) {
                 Log.d("MyLog",result.raw().toString())
             }
+            progressBarLiveData.postValue(false)
 
         } catch (e: Exception){
+            progressBarLiveData.postValue(false)
             Log.d("MyLog",e.toString())
         }
     }

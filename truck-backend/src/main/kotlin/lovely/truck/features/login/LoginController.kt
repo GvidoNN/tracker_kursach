@@ -1,16 +1,12 @@
 package lovely.truck.features.login
 
-import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import lovely.truck.database.tokens.TokenDTO
 import lovely.truck.database.tokens.Tokens
-import lovely.truck.database.users.UserDTO
 import lovely.truck.database.users.Users
-import lovely.truck.plugins.Test
 import java.util.*
-import kotlin.math.log
 
 class LoginController(private val call: ApplicationCall) {
 
