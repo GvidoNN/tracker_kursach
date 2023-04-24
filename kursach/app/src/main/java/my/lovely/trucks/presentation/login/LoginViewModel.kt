@@ -33,7 +33,6 @@ class LoginViewModel @Inject constructor(private val requestLoginUseCase: Reques
                 Log.d("MyLog",result.raw().toString())
             }
             progressBarLiveData.postValue(false)
-
         } catch (e: Exception){
             Log.d("MyLog",e.toString())
             progressBarLiveData.postValue(false)

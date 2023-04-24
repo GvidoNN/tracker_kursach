@@ -13,4 +13,8 @@
     <string name="have_acc">Уже есть аккаунт?</string>
     <string name="tracker_hint">Впишите трек-номер сюда…</string>
     <string name="tracking_button">Отследить номер</string>
+    <string name="truck">Фура: </string>
+    <string name="state">Состояние: </string>
+    <string name="start_date">Дата отправления: </string>
+    <string name="done">Принято</string>
 </resources>

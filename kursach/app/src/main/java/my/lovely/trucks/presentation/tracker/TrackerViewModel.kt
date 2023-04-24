@@ -8,30 +8,37 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import my.lovely.trucks.data.api.LoginService
-import my.lovely.trucks.domain.model.DataResponse
-import my.lovely.trucks.domain.model.LoginRequest
-import my.lovely.trucks.domain.model.LoginResponse
-import my.lovely.trucks.domain.usecase.GetDataUseCase
+import my.lovely.trucks.domain.model.TrackerInfoResponse
+import my.lovely.trucks.domain.usecase.RequestInfoTrackerUseCase
 import javax.inject.Inject
 
 @HiltViewModel
 class TrackerViewModel @Inject constructor(
-    private val getDataUseCase: GetDataUseCase,
+    private val requestInfoTrackerUseCase: RequestInfoTrackerUseCase,
 ) : ViewModel() {
 
-    private val dataResponseLiveData = MutableLiveData<DataResponse>()
+    private val infoTrackerLiveData = MutableLiveData<TrackerInfoResponse>()
     private var progressBarLiveData = MutableLiveData<Boolean>()
 
-    val dataResponse: LiveData<DataResponse>
-        get() = dataResponseLiveData
+    val trackerInfoResponse: LiveData<TrackerInfoResponse>
+        get() = infoTrackerLiveData
 
     val progressBar: LiveData<Boolean>
         get() = progressBarLiveData
 
-    fun dataResponce() = viewModelScope.launch(Dispatchers.IO) {
-        var result = getDataUseCase.getSearchInside()
-        dataResponseLiveData.postValue(result?.body() ?: null)
+    fun postTrackerInfo(trackNumber: String) = viewModelScope.launch(Dispatchers.IO) {
+        try{
+            progressBarLiveData.postValue(true)
+            var result = requestInfoTrackerUseCase.getTrackerInfoResponse(trackNumber = trackNumber)
+            infoTrackerLiveData.postValue(result?.body() ?: null)
+            if (result != null) {
+                Log.d("MyLog",result.raw().toString())
+            }
+            progressBarLiveData.postValue(false)
+        } catch (e: Exception){
+            Log.d("MyLog",e.toString())
+            progressBarLiveData.postValue(false)
+        }
     }
 
 

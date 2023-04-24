@@ -19,6 +19,7 @@ object DataObject {
     var retrofitService: DataService? = null
     var retrofitLoginServise: LoginService? = null
     var retrofitRegistrationService: RegistrationService? = null
+    var retrofitInfoTrackerService: TrackerService? = null
 
     @Provides
     @Singleton
@@ -63,5 +64,20 @@ object DataObject {
             retrofitRegistrationService = retrofit.create(RegistrationService::class.java)
         }
         return retrofitRegistrationService!!
+    }
+
+    @Provides
+    @Singleton
+    fun postInfoTracker(): TrackerService {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
+        if (retrofitInfoTrackerService == null) {
+            val retrofit = Retrofit.Builder().baseUrl(BASE_URL).client(client)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            retrofitInfoTrackerService = retrofit.create(TrackerService::class.java)
+        }
+        return retrofitInfoTrackerService!!
     }
 }

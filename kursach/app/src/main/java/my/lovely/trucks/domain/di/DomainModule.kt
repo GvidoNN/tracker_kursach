@@ -7,7 +7,9 @@ import dagger.hilt.android.components.ViewModelComponent
 import my.lovely.trucks.domain.repository.GetDataRepository
 import my.lovely.trucks.domain.repository.LoginRepository
 import my.lovely.trucks.domain.repository.RegistrationRepository
+import my.lovely.trucks.domain.repository.TrackerRepository
 import my.lovely.trucks.domain.usecase.GetDataUseCase
+import my.lovely.trucks.domain.usecase.RequestInfoTrackerUseCase
 import my.lovely.trucks.domain.usecase.RequestLoginUseCase
 import my.lovely.trucks.domain.usecase.RequestRegistrationUseCase
 
@@ -30,4 +32,10 @@ class DomainModule {
     fun provideRequestRegistrationUseCase(registrationRepository: RegistrationRepository): RequestRegistrationUseCase {
         return RequestRegistrationUseCase(registrationRepository = registrationRepository)
     }
+
+    @Provides
+    fun provideRequestInfoTrackerUseCase(trackerRepository: TrackerRepository): RequestInfoTrackerUseCase {
+        return RequestInfoTrackerUseCase(trackerRepository = trackerRepository)
+    }
+
 }

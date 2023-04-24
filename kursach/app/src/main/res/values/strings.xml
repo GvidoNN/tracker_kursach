@@ -13,5 +13,8 @@
     <string name="have_acc">Already have account?</string>
     <string name="tracker_hint">Enter a track-number here...</string>
     <string name="tracking_button">Tracking number</string>
-
+    <string name="truck">Truck: </string>
+    <string name="state">State: </string>
+    <string name="start_date">Start Date: </string>
+    <string name="done">Done</string>
 </resources>

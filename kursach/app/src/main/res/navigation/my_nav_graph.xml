@@ -19,5 +19,16 @@
         <action
             android:id="@+id/action_trackerFragment_to_addingFragment"
             app:destination="@id/addingFragment" />
+        <action
+            android:id="@+id/action_trackerFragment_to_trackerInformationFragment"
+            app:destination="@id/trackerInformationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trackerInformationFragment"
+        android:name="my.lovely.trucks.presentation.trackerInformation.TrackerInformationFragment"
+        android:label="TrackerInformationFragment" >
+        <action
+            android:id="@+id/action_trackerInformationFragment_to_trackerFragment"
+            app:destination="@id/trackerFragment" />
     </fragment>
 </navigation>
