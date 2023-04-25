@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">Trucks</string>
     <string name="tracking">Tracking</string>
-    <string name="adding">Adding</string>
+    <string name="adding">Edit</string>
     <string name="password_hint">Password</string>
     <string name="email_hint">Email</string>
     <string name="password_hint_again">Repeat password</string>
@@ -17,4 +17,11 @@
     <string name="state">State: </string>
     <string name="start_date">Start Date: </string>
     <string name="done">Done</string>
+    <string name="change">Change Data</string>
+    <string name="delete">Delete Data</string>
+    <string name="add">Add Data</string>
+    <string name="track_number_in">Track number</string>
+    <string name="truck_in">Truck</string>
+    <string name="state_in">State</string>
+    <string name="start_date_in">Start date</string>
 </resources>

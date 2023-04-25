@@ -8,10 +8,7 @@ import my.lovely.trucks.domain.repository.GetDataRepository
 import my.lovely.trucks.domain.repository.LoginRepository
 import my.lovely.trucks.domain.repository.RegistrationRepository
 import my.lovely.trucks.domain.repository.TrackerRepository
-import my.lovely.trucks.domain.usecase.GetDataUseCase
-import my.lovely.trucks.domain.usecase.RequestInfoTrackerUseCase
-import my.lovely.trucks.domain.usecase.RequestLoginUseCase
-import my.lovely.trucks.domain.usecase.RequestRegistrationUseCase
+import my.lovely.trucks.domain.usecase.*
 
 
 @Module
@@ -36,6 +33,11 @@ class DomainModule {
     @Provides
     fun provideRequestInfoTrackerUseCase(trackerRepository: TrackerRepository): RequestInfoTrackerUseCase {
         return RequestInfoTrackerUseCase(trackerRepository = trackerRepository)
+    }
+
+    @Provides
+    fun provideRequestAddTrackerUseCase(trackerRepository: TrackerRepository): RequestAddTrackerUseCase {
+        return RequestAddTrackerUseCase(trackerRepository = trackerRepository)
     }
 
 }

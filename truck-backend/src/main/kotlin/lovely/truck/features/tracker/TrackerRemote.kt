@@ -4,6 +4,14 @@ import kotlinx.serialization.Serializable
 
 
 @Serializable
+data class TrackerAddReceiveRemote(
+    val track_number: String,
+    val truck: String,
+    val state: String,
+    val date_start: String,
+)
+
+@Serializable
 data class TrackerReceiveRemote(
     val track_number: String
 )
@@ -15,5 +23,5 @@ data class TrackerResponseRemote(
     val state: String,
     val date_start: String,
     val exception: String,
-    val tracking: Boolean
+    val done: Boolean
 )

@@ -42,7 +42,7 @@ class TrackerFragment: Fragment(R.layout.fragment_tracker) {
             val trackNumber = binding.edTrack.text.toString()
             trackerViewModel.postTrackerInfo(trackNumber = trackNumber)
             trackerViewModel.trackerInfoResponse.observe(viewLifecycleOwner){
-                if(it.tracking){
+                if(it.done){
                     binding.tvTrackError.isVisible = false
                     binding.linearTrackerHide.isVisible = false
                     binding.linearTrackerHideInfo.isVisible = true

@@ -68,7 +68,7 @@ object DataObject {
 
     @Provides
     @Singleton
-    fun postInfoTracker(): TrackerService {
+    fun postTracker(): TrackerService {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         val client = OkHttpClient.Builder().addInterceptor(interceptor).build()

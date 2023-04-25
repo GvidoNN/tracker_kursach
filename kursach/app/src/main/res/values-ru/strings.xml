@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="tracking">Трекинг</string>
-    <string name="adding">Добавление</string>
+    <string name="adding">Изменение</string>
     <string name="password_hint">Пароль</string>
     <string name="email_hint">Email</string>
     <string name="password_hint_again">Повтор пароля</string>
@@ -17,4 +17,11 @@
     <string name="state">Состояние: </string>
     <string name="start_date">Дата отправления: </string>
     <string name="done">Принято</string>
+    <string name="change">Изменение данных</string>
+    <string name="delete">Удаление данных</string>
+    <string name="add">Добавление данных</string>
+    <string name="track_number_in">Трек номер</string>
+    <string name="truck_in">Фура</string>
+    <string name="state_in">Состояние</string>
+    <string name="start_date_in">Дата отправления</string>
 </resources>

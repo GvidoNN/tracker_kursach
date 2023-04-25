@@ -9,5 +9,10 @@ fun Application.configureTrackerRouting() {
             val trackerController = TrackerController(call)
             trackerController.checkTracker()
         }
+
+        post("/addtracker") {
+            val trackerController = TrackerController(call)
+            trackerController.addTracker()
+        }
     }
 }

@@ -34,6 +34,7 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-jodatime:$exposed_version")
 
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.2.0")
 
     implementation("org.postgresql:postgresql:42.5.1")
     implementation("com.zaxxer:HikariCP:5.0.1")
