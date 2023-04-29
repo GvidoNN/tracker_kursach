@@ -54,7 +54,6 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                     Log.d("MyLog","Ошибка ${it.exception}")
                 }
             }
-
         }
 
         binding.tvLogRegistration.setOnClickListener {

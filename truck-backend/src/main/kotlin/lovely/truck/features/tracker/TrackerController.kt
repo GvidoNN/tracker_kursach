@@ -46,12 +46,44 @@ class TrackerController(private val call: ApplicationCall) {
             } catch (e: ExposedSQLException) {
                 call.respond(TrackerResponseRemote(track_number = "null", truck = "null", state = "null", date_start = "null", exception = "Tracker already exist ", done = false))
             } catch (e: Exception) {
-                call.respond(TrackerResponseRemote(track_number = "null", truck = "null", state = "null", date_start = "null", exception = "${e.localizedMessage}", done = false))
+                call.respond(TrackerResponseRemote(track_number = "null", truck = "null", state = "null", date_start = "null", exception = e.localizedMessage, done = false))
             }
-
-
         }
     }
 
+    suspend fun deleteTracker(){
+        val receive = call.receive<TrackerReceiveRemote>()
+        val trackerDTO = Trackers.deleteTracker(receive.track_number)
+        println("receive $trackerDTO")
+        try {
+            Trackers.deleteTracker(receive.track_number)
+            call.respond(TrackerResponseRemote(track_number = "null", truck = "null", state = "null", date_start = "null", exception = "null", done = true))
+        } catch(e: Exception) {
+            call.respond(TrackerResponseRemote(track_number = "null", truck = "null", state = "null", date_start = "null", exception = e.localizedMessage, done = false))
+        }
+    }
+
+    suspend fun updateTracker(){
+        val receive = call.receive<TrackerAddReceiveRemote>()
+        val trackerDTO = Trackers.fetchTracker(receive.track_number)
+        if(trackerDTO!!.track_number == null){
+            call.respond(TrackerResponseRemote(track_number = "null", truck = "null", state = "null", date_start = "null", exception = "Tracker not found", done = false))
+        } else {
+            try{
+                Trackers.updateTracker(
+                    TrackerDTO(
+                        track_number = receive.track_number,
+                        truck = receive.truck,
+                        state = receive.state,
+                        date_start = receive.date_start
+                    )
+                )
+                call.respond(TrackerResponseRemote(track_number = receive.track_number, truck = receive.truck, state = receive.state, date_start = receive.date_start, exception = "null", done = true))
+            } catch (e: Exception){
+                call.respond(TrackerResponseRemote(track_number = "null", truck = "null", state = "null", date_start = "null", exception = e.localizedMessage, done = false))
+            }
+        }
+
+    }
 
 }

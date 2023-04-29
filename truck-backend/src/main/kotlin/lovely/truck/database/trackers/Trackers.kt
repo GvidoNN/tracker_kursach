@@ -1,10 +1,8 @@
 package lovely.truck.database.trackers
 
 import kotlinx.datetime.toJavaLocalDate
-import org.jetbrains.exposed.sql.Table
-import org.jetbrains.exposed.sql.insert
+import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.jodatime.datetime
-import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.transactions.transaction
 import java.sql.Timestamp
 import java.time.LocalDateTime
@@ -28,6 +26,16 @@ object Trackers: Table("trackers") {
         }
     }
 
+    fun updateTracker(trackerDTO: TrackerDTO){
+        transaction {
+            Trackers.update({Trackers.trackNumber eq trackerDTO.track_number}){
+                it[truck] = trackerDTO.truck
+                it[state] = trackerDTO.state
+                it[dateStart] = trackerDTO.date_start
+            }
+        }
+    }
+
     fun fetchTracker(tracker: String): TrackerDTO? {
 
         return try {
@@ -41,6 +49,12 @@ object Trackers: Table("trackers") {
             }
         } catch (e: Exception){
             null
+        }
+    }
+
+    fun deleteTracker(tracker: String){
+        transaction {
+            Trackers.deleteWhere { Trackers.trackNumber eq tracker }
         }
     }
 }

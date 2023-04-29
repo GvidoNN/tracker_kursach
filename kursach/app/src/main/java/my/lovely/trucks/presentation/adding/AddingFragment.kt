@@ -55,5 +55,36 @@ class AddingFragment: Fragment(R.layout.fragment_adding) {
 
         }
 
+        binding.btEditDeleteData.setOnClickListener {
+            val trackNumber = binding.edEditDeleteTrackNumber.text.toString()
+            addingViewModel.postDeleteTracker(trackNumber = trackNumber)
+            addingViewModel.trackerDelete.observe(viewLifecycleOwner){
+                if(it.done){
+                    binding.edEditDeleteTrackNumber.setText("")
+                } else {
+                    binding.tvEditDeleteError.text = it.exception
+                    binding.tvEditDeleteError.isVisible = true
+                }
+            }
+        }
+
+        binding.btEditEditData.setOnClickListener {
+            val trackNumber = binding.edEditEditTrackNumber.text.toString()
+            val truck = binding.edEditEditTruck.text.toString()
+            val state = binding.edEditEditState.text.toString()
+            val date = binding.edEditEditDateStart.text.toString()
+            addingViewModel.postUpdateTracker(trackNumber =  trackNumber, truck = truck, state = state, dateStart = date)
+            addingViewModel.trackerUpdate.observe(viewLifecycleOwner){
+                if(it.done){
+                    binding.edEditEditTrackNumber.setText("")
+                    binding.edEditEditTruck.setText("")
+                    binding.edEditEditState.setText("")
+                    binding.edEditEditDateStart.setText("")
+                } else {
+                    binding.tvEditEditError.text = it.exception
+                    binding.tvEditEditError.isVisible = true
+                }
+            }
+        }
     }
 }

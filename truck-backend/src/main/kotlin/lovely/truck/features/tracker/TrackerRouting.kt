@@ -14,5 +14,15 @@ fun Application.configureTrackerRouting() {
             val trackerController = TrackerController(call)
             trackerController.addTracker()
         }
+
+        post("/deletetracker"){
+            val trackerController = TrackerController(call)
+            trackerController.deleteTracker()
+        }
+
+        post ("/updatetracker"){
+            val trackerController = TrackerController(call)
+            trackerController.updateTracker()
+        }
     }
 }

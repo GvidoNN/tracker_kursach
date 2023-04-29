@@ -40,4 +40,14 @@ class DomainModule {
         return RequestAddTrackerUseCase(trackerRepository = trackerRepository)
     }
 
+    @Provides
+    fun provideRequestDeleteTrackerUseCase(trackerRepository: TrackerRepository): RequestDeleteTrackerUseCase {
+        return RequestDeleteTrackerUseCase(trackerRepository = trackerRepository)
+    }
+
+    @Provides
+    fun provideRequestUpdateTrackerUseCase(trackerRepository: TrackerRepository): RequestUpdateTrackerUseCase {
+        return RequestUpdateTrackerUseCase(trackerRepository = trackerRepository)
+    }
+
 }
