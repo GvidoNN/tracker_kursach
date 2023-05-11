@@ -1,11 +1,7 @@
 package lovely.truck.database.trackers
 
-import kotlinx.datetime.toJavaLocalDate
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.jodatime.datetime
 import org.jetbrains.exposed.sql.transactions.transaction
-import java.sql.Timestamp
-import java.time.LocalDateTime
 
 object Trackers: Table("trackers") {
 

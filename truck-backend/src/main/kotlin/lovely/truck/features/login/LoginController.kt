@@ -33,7 +33,5 @@ class LoginController(private val call: ApplicationCall) {
                 call.respond(LoginResponseRemote(token = "null", logIn = false, exception = "invalid password"))
             }
         }
-
-
     }
 }

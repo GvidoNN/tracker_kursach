@@ -21,7 +21,7 @@ class TrackerController(private val call: ApplicationCall) {
                 print(trackerDTO)
                 call.respond(TrackerResponseRemote(track_number = trackerDTO.track_number, truck = trackerDTO.truck, state = trackerDTO.state, date_start = trackerDTO.date_start.toString(), exception = "null", done = true))
             } else {
-//                call.respond(LoginResponseRemote(token = "null", logIn = false, exception = "invalid password"))
+                //nothing
             }
         }
     }
@@ -66,7 +66,7 @@ class TrackerController(private val call: ApplicationCall) {
     suspend fun updateTracker(){
         val receive = call.receive<TrackerAddReceiveRemote>()
         val trackerDTO = Trackers.fetchTracker(receive.track_number)
-        if(trackerDTO!!.track_number == null){
+        if(trackerDTO == null){
             call.respond(TrackerResponseRemote(track_number = "null", truck = "null", state = "null", date_start = "null", exception = "Tracker not found", done = false))
         } else {
             try{

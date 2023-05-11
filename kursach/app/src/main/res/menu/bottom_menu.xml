@@ -3,14 +3,24 @@
     <item
         android:id="@+id/trackerFragment"
         android:title="@string/tracking"
+        android:icon="@drawable/ic_tracker"
         android:orderInCategory="1"
         />
 <!--    android:icon="@drawable/ic_book"-->
     <item
         android:id="@+id/addingFragment"
         android:title="@string/adding"
+        android:icon="@drawable/ic_change"
         android:orderInCategory="2"
         />
+
+    <item
+        android:id="@+id/aboutMeFragment"
+        android:title="@string/about_me"
+        android:icon="@drawable/ic_author"
+        android:orderInCategory="3"
+        />
+
 
 
 </menu>

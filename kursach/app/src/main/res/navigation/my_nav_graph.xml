@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_addingFragment_to_trackerFragment"
             app:destination="@id/trackerFragment" />
+        <action
+            android:id="@+id/action_addingFragment_to_aboutMeFragment"
+            app:destination="@id/aboutMeFragment" />
     </fragment>
     <fragment
         android:id="@+id/trackerFragment"
@@ -22,6 +25,9 @@
         <action
             android:id="@+id/action_trackerFragment_to_trackerInformationFragment"
             app:destination="@id/trackerInformationFragment" />
+        <action
+            android:id="@+id/action_trackerFragment_to_aboutMeFragment"
+            app:destination="@id/aboutMeFragment" />
     </fragment>
     <fragment
         android:id="@+id/trackerInformationFragment"
@@ -29,6 +35,17 @@
         android:label="TrackerInformationFragment" >
         <action
             android:id="@+id/action_trackerInformationFragment_to_trackerFragment"
+            app:destination="@id/trackerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutMeFragment"
+        android:name="my.lovely.trucks.presentation.aboutMe.AboutMeFragment"
+        android:label="aboutMeFragment" >
+        <action
+            android:id="@+id/action_aboutMeFragment_to_addingFragment"
+            app:destination="@id/addingFragment" />
+        <action
+            android:id="@+id/action_aboutMeFragment_to_trackerFragment"
             app:destination="@id/trackerFragment" />
     </fragment>
 </navigation>

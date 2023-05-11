@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">Trucks</string>
     <string name="tracking">Tracking</string>
+    <string name="about_me">About Me</string>
     <string name="adding">Edit</string>
     <string name="password_hint">Password</string>
     <string name="email_hint">Email</string>

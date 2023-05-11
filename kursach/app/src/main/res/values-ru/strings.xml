@@ -2,6 +2,7 @@
 <resources>
     <string name="tracking">Трекинг</string>
     <string name="adding">Изменение</string>
+    <string name="about_me">Об Авторе</string>
     <string name="password_hint">Пароль</string>
     <string name="email_hint">Email</string>
     <string name="password_hint_again">Повтор пароля</string>
